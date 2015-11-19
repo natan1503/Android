@@ -26,8 +26,7 @@ public class MainActivity extends Activity {
  
     //JSON Node Names
     private static final String TAG_USER = "user";
-    private static final String TAG_ID = "id";
-    private static final String TAG_NAME = "nome";
+    static final String TAG_NAME = "nome";
  
     JSONArray user = null;
  
@@ -62,7 +61,7 @@ public class MainActivity extends Activity {
             pDialog.show();
  
         }
- 
+
         @Override
         protected JSONObject doInBackground(String... args) {
             JSONParser jParser = new JSONParser();
@@ -80,18 +79,13 @@ public class MainActivity extends Activity {
                     JSONObject c = user.getJSONObject(0);
  
                     // Storing  JSON item in a Variable
-                    String id = c.getString(TAG_ID);
                     String name = c.getString(TAG_NAME);
- 
+                    
                     //Set JSON Data in TextView
-                    nome.setText(id);
-                    senha.setText(name);
- 
+                    nome.setText(name);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
- 
          }
     }
- 
 }
